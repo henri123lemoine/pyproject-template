@@ -1,8 +1,15 @@
 # Python Project Template
 
-This template is meant for personal use and may not be suitable for all projects.
+A minimal Python project template with logging and testing setup. Made for personal use.
 
-## Usage
+## Features
+
+- Logging with loguru
+- Environment variables with python-dotenv
+- Testing with pytest
+- Linting with ruff
+
+## Getting Started
 
 This project uses `uv`. Installation instructions [here](https://docs.astral.sh/uv/getting-started/installation/).
 

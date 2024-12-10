@@ -8,7 +8,6 @@ from loguru import logger
 class LogConfig:
     """Configuration class for logging setup."""
 
-    # Default format strings for different contexts
     DEFAULT_DEBUG_FORMAT = (
         "<green>{time:YYYY-MM-DD HH:mm:ss.SSS}</green> | "
         "<level>{level: <8}</level> | "
