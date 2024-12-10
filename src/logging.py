@@ -1,6 +1,6 @@
 import sys
 from pathlib import Path
-from typing import Any, Dict, Optional, Union
+from typing import Any
 
 from loguru import logger
 
@@ -34,15 +34,15 @@ class LogConfig:
     def __init__(
         self,
         debug: bool = False,
-        log_dir: Optional[Union[str, Path]] = None,
+        log_dir: str | Path | None = None,
         app_name: str = "app",
         retention: str = "1 week",
         rotation: str = "100 MB",
         log_to_file: bool = True,
         log_to_console: bool = True,
-        debug_format: Optional[str] = None,
-        info_format: Optional[str] = None,
-        error_format: Optional[str] = None,
+        debug_format: str | None = None,
+        info_format: str | None = None,
+        error_format: str | None = None,
     ):
         """
         Initialize logging configuration.
@@ -72,7 +72,7 @@ class LogConfig:
         self.info_format = info_format or self.DEFAULT_INFO_FORMAT
         self.error_format = error_format or self.DEFAULT_ERROR_FORMAT
 
-    def get_file_handlers(self) -> Dict[str, Dict[str, Any]]:
+    def get_file_handlers(self) -> dict[str, dict[str, Any]]:
         """Generate configuration for file handlers."""
         if not self.log_to_file:
             return {}
@@ -112,7 +112,7 @@ class LogConfig:
 
         return handlers
 
-    def get_console_handler(self) -> Dict[str, Any]:
+    def get_console_handler(self) -> dict[str, Any]:
         """Generate configuration for console handler."""
         return {
             "sink": sys.stderr,
@@ -166,5 +166,5 @@ if __name__ == "__main__":
 
     try:
         raise ValueError("Example exception")
-    except Exception as e:
+    except Exception:
         logger.exception("An error occurred")
